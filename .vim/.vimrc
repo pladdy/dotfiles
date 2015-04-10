@@ -1,6 +1,8 @@
-syntax on
 filetype plugin on
-colorscheme evening
+
+syntax on
+set t_Co=256
+colorscheme jellybeans 
 
 set hlsearch  " hightlight searches
 set incsearch " show partial searches
