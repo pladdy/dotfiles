@@ -27,4 +27,7 @@ endif
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%>81v.\+/
 
+" remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 command Clear :let @/="" " remove regex highlighting
