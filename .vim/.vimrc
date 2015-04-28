@@ -2,7 +2,7 @@ filetype plugin on
 
 syntax on
 set t_Co=256
-colorscheme jellybeans 
+colorscheme jellybeans
 
 set hlsearch  " hightlight searches
 set incsearch " show partial searches
@@ -19,7 +19,7 @@ set backspace=eol,start,indent " configure backspace
 
 " add a ruler at 80 chars
 if exists('+colorcolumn')
-  set colorcolumn=80 
+  set colorcolumn=80
   highlight ColorColumn ctermbg=brown guibg=brown
 endif
 
@@ -30,4 +30,8 @@ match OverLength /\%>81v.\+/
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-command Clear :let @/="" " remove regex highlighting
+" remove regex highlighting
+command Clear :let @/=""
+
+" write crontab files directly (so crontab -e will work)
+autocmd filetype crontab setlocal nobackup nowritebackup
