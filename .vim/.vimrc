@@ -35,3 +35,7 @@ command Clear :let @/=""
 
 " write crontab files directly (so crontab -e will work)
 autocmd filetype crontab setlocal nobackup nowritebackup
+
+autocmd VimEnter * NERDTree " nerd tree
+
+execute pathogen#infect()
