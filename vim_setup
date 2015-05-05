@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 
 # install nerdtree
-git clone git@github.com:scrooloose/nerdtree.git ./.vim/bundle/nerdtree
+nerd_dir=./.vim/bundle/nerdtree
+
+if [ ! -d ./.vim/bundle/nerdtree/.git ]
+then
+  git clone git@github.com:scrooloose/nerdtree.git $nerd_dir
+else
+  echo "Nerdtree seems to already be there, rm -rf $nerd_dir to re-install"
+fi

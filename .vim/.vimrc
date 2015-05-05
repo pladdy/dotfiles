@@ -38,5 +38,5 @@ command Clear :let @/=""
 " write crontab files directly (so crontab -e will work)
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-autocmd VimEnter * NERDTree " nerd tree
+autocmd VimEnter * NERDTree | wincmd p " nerd tree; open in second window
 
