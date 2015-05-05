@@ -1,7 +1,7 @@
 ##
  # utility functiong for removing a host from known_hosts and logging in
  ##
-log_in() {
+budvar() {
   # remove the ip address from known_hosts
   sed_str="sed -i .bak '/^192.168.66.$1/d' ~/.ssh/known_hosts"
   printf "removing ip from known hosts: $sed_str\n"
