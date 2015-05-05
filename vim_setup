@@ -1,11 +1,27 @@
 #!/usr/bin/env bash
 
-# install nerdtree
-nerd_dir=./.vim/bundle/nerdtree
+get_plugin_dir_name() {
+  local dir_name=${2##*/} # get repo name
+  dir_name=${dir_name%.*} # remove .git
+  dir_name=$1/$dir_name
+  echo $dir_name
+}
 
-if [ ! -d ./.vim/bundle/nerdtree/.git ]
-then
-  git clone git@github.com:scrooloose/nerdtree.git $nerd_dir
-else
-  echo "Nerdtree seems to already be there, rm -rf $nerd_dir to re-install"
-fi
+bundle_dir=./.vim/bundle
+
+declare -a plugins=(
+  "scrooloose/nerdtree.git"
+  "Xuyuanp/nerdtree-git-plugin.git"
+)
+
+for plugin in "${plugins[@]}"
+do
+  dir_name=$(get_plugin_dir_name $bundle_dir $plugin)
+
+  if [ ! -d $dir_name/.git ]
+  then
+    git clone git@github.com:$plugin $bundle_dir
+  else
+    echo "$plugin seems to be installed; rm -rf $dir_name to re-install"
+  fi
+done
