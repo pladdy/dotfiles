@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 filetype plugin on
 
 syntax on
@@ -38,4 +40,3 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 autocmd VimEnter * NERDTree " nerd tree
 
-execute pathogen#infect()
