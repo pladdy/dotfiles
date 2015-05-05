@@ -27,6 +27,8 @@
     fullScreen: false
     projects: [
       "/Users/mpladna/mud"
+      "/Users/mpladna/dev/projects/cip-etl"
+      "/Users/mpladna/dev/projects/cip-private-feeds"
     ]
   "tree-view":
     hideVcsIgnoredFiles: false
