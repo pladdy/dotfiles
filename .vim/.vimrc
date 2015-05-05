@@ -39,4 +39,4 @@ command Clear :let @/=""
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 autocmd VimEnter * NERDTree | wincmd p " nerd tree; open in second window
-
+let NERDTreeShowHidden=1               " show hidden files/dirs
