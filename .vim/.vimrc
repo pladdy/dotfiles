@@ -1,6 +1,6 @@
 execute pathogen#infect()
 
-filetype plugin on
+filetype plugin indent on
 
 syntax on
 set t_Co=256
