@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 get_plugin_dir_name() {
-  local dir_name=${2##*/} # get repo name
+  local dir_name=${1##*/} # get repo name
   dir_name=${dir_name%.*} # remove .git
-  dir_name=$1/$dir_name
   echo $dir_name
 }
 
+# set up my destination directory and the plugins
 bundle_dir=./.vim/bundle
 
 declare -a plugins=(
@@ -14,9 +14,13 @@ declare -a plugins=(
   "Xuyuanp/nerdtree-git-plugin.git"
 )
 
+##
+ # check if plugins are installed by seeing if a .git dir is in the
+ # corresponding directory of the plugin; if not clone.
+ ##
 for plugin in "${plugins[@]}"
 do
-  dir_name=$(get_plugin_dir_name $bundle_dir $plugin)
+  dir_name=$bundle_dir/$(get_plugin_dir_name $plugin)
 
   if [ ! -d $dir_name/.git ]
   then
