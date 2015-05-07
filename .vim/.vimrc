@@ -2,6 +2,10 @@ execute pathogen#infect()
 
 filetype plugin indent on
 
+set tabstop=2    " tabs are 2 spaces
+set shiftwidth=2
+set expandtab    " spaces for tabs
+
 syntax on
 set t_Co=256
 colorscheme jellybeans
@@ -11,8 +15,6 @@ set incsearch " show partial searches
 
 set number " line number
 set ruler  " show linenumber and column
-
-set expandtab " spaces for tabs
 
 set showmatch " matching braces highlighting
 set mat=2     " blink for above

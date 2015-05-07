@@ -24,7 +24,7 @@ do
 
   if [ ! -d $dir_name/.git ]
   then
-    git clone git@github.com:$plugin $bundle_dir
+    git clone git@github.com:$plugin $dir_name
   else
     echo "$plugin seems to be installed; rm -rf $dir_name to re-install"
   fi
