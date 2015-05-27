@@ -12,6 +12,7 @@ bundle_dir=./.vim/bundle
 declare -a plugins=(
   "scrooloose/nerdtree.git"
   "Xuyuanp/nerdtree-git-plugin.git"
+  # "jistr/vim-nerdtree-tabs"
 )
 
 ##

@@ -1,7 +1,8 @@
 "*":
   editor:
     showIndentGuide: true
-    invisibles: {}
+    invisibles:
+      {}
     fontSize: 11
   core:
     themes: [
@@ -9,11 +10,15 @@
       "atom-dark-syntax"
     ]
     projectHome: "/Users/mpladna/dev"
+    disabledPackages: [
+      "autocomplete-plus"
+    ]
   "exception-reporting":
     userId: "3f4ec968-3a0e-1976-6fe6-373f87123b39"
   welcome:
     showOnStartup: false
-  linter: {}
+  linter:
+    {}
   "bracket-matcher":
     autocompleteBrackets: false
     autocompleteSmartQuotes: false
@@ -25,11 +30,7 @@
     windowHeight: 825
     dataSaveFolder: "/Users/mpladna/.atom/packages/save-session/projects"
     fullScreen: false
-    projects: [
-      "/Users/mpladna/mud"
-      "/Users/mpladna/dev/projects/cip-etl"
-      "/Users/mpladna/dev/projects/cip-private-feeds"
-    ]
+    projects: []
   "tree-view":
     hideVcsIgnoredFiles: false
     hideIgnoredNames: true
