@@ -9,5 +9,5 @@ budvar() {
 
   eval `ssh-agent -s`
   ssh-add
-  ssh -A mpladna@192.168.66.$1
+  ssh -oStrictHostKeyChecking=no -A mpladna@192.168.66.$1
 }
