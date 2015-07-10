@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+REPO_DIR=$(cd $(dirname $0) && pwd)
+
+##
+ # create links
+ ##
+ln -s ${REPO_DIR}/.vim ~/.vim
+ln -s ${REPO_DIR}/.vim/.vimrc ~/.vimrc
+ln -s ${REPO_DIR}/.aliases ~/.aliases
+ln -s ${REPO_DIR}/.bashrc ~/.bashrc
+
+echo "Set up your .bash_profile..."
