@@ -5,6 +5,7 @@ Create symlinks...
 Ex: if i cloned dotfiles down in /home/mpladna/dev do the below:
 
 ln -s /home/mpladna/dev/dotfiles/.bashrc ~/.bashrc
+ln -s /home/mpladna/dev/dotfiles/.aliases ~/.aliases
 ln -s /home/mpladna/dev/dotfiles/.vim/ ~/.vim
 ln -s /home/mpladna/dev/dotfiles/.vim/.vimrc ~/.vimrc
 
