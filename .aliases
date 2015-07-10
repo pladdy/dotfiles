@@ -1,2 +1,3 @@
 alias h='history'
 alias ll='ls -al'
+alias crontab="VIM_CRONTAB=true crontab"
