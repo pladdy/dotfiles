@@ -1,3 +1,7 @@
 alias h='history'
-alias ll='ls -al'
 alias crontab="VIM_CRONTAB=true crontab"
+
+if [ gls > /dev/null ]; then
+  alias ls='ls -G'
+  alias ll='ls -alG'
+fi
