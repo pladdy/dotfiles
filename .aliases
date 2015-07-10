@@ -1,7 +1,10 @@
 alias h='history'
 alias crontab="VIM_CRONTAB=true crontab"
 
+# if gls isn't installed
 if [ gls > /dev/null ]; then
   alias ls='ls -G'
   alias ll='ls -alG'
+else
+  alias ls='/usr/local/bin/gls --color'
 fi
