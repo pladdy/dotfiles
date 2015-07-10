@@ -5,7 +5,11 @@ REPO_DIR=$(cd $(dirname $0) && pwd)
 ##
  # create links
  ##
-ln -s ${REPO_DIR}/.vim ~/.vim
+# only create this link if it doesn't exist, creates circular link otherwise
+if ! [ -d ~/.vim ]; then
+  ln -s ${REPO_DIR}/.vim ~/.vim
+fi
+
 ln -s ${REPO_DIR}/.vim/.vimrc ~/.vimrc
 ln -s ${REPO_DIR}/.aliases ~/.aliases
 ln -s ${REPO_DIR}/.bashrc ~/.bashrc
