@@ -13,6 +13,7 @@ fi
 ln -s ${REPO_DIR}/.vim/.vimrc ~/.vimrc
 ln -s ${REPO_DIR}/.aliases ~/.aliases
 ln -s ${REPO_DIR}/.bashrc ~/.bashrc
+ln -s ${REPO_DIR}/..functions ~/.functions
 
 if ! [ -f ~/.bash_profile ]; then
   echo "Set up your .bash_profile..."
