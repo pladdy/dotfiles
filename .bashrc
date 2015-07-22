@@ -10,9 +10,9 @@ fi
 export CLICOLOR=1
 export LSCOLORS=ExGxcxdxCxegedabagacad
 
-# if gls is installed
-if [ $(which gls) ]; then
-  eval `dircolors -b`
+# if gdircolors is installed
+if [ $(which gdircolors) ]; then
+  eval `/usr/local/bin/gdircolors -b`
 fi
 
 export EDITOR=vim
