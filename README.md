@@ -1,13 +1,8 @@
 ### dotfiles
-Includes my super sweet config/aliases/setup/stuff that I like
+My super sweet dotfiles!  Never leave home without them and always happy to share!
 
-Create symlinks...
-Ex: if i cloned dotfiles down in /home/mpladna/dev do the below:
+### Installation
+`./install`
 
-ln -s /home/mpladna/dev/dotfiles/.bashrc ~/.bashrc
-ln -s /home/mpladna/dev/dotfiles/.aliases ~/.aliases
-ln -s /home/mpladna/dev/dotfiles/.vim/ ~/.vim
-ln -s /home/mpladna/dev/dotfiles/.vim/.vimrc ~/.vimrc
-
-#### For a Mac
-install homebrew
+This will backup current dotfilesin your home directory and then create
+symlinks to the repo dotfiles.
