@@ -3,25 +3,35 @@
 REPO_DIR=$(cd $(dirname $0) && pwd)
 
 ##
+ # back up files before creating links
+ ##
+echo "backing up old files to .old"
+
+declare -a FILES=(.vimrc .aliases .bashrc .functions .colors)
+
+for file in ${FILES}; do
+  if [ -f ~/${file} ]; then
+    mv ~/${file} ~/${file}.old
+  fi
+done
+
+##
  # create links
  ##
-# only create this link if it doesn't exist, creates circular link otherwise
+echo "linking to new files"
+
+# only create directory link if not present (creates circular link otherwise)
 if ! [ -d ~/.vim ]; then
   ln -sf ${REPO_DIR}/.vim ~/.vim
 fi
 
-echo "backing up old files to .old"
-mv ~/.vimrc ~/.vimrc.old
-mv ~/.aliaes ~/.aliases.old
-mv ~/.bashrc ~/.bashrc.old
-mv ~/.functions ~/.functions.old
+for file in ${FILES}; do
+  ln -sf ${REPO_DIR}/${file} ~/${file}
+done
 
-echo "linking to new files"
-ln -sf ${REPO_DIR}/.vim/.vimrc ~/.vimrc
-ln -sf ${REPO_DIR}/.aliases ~/.aliases
-ln -sf ${REPO_DIR}/.bashrc ~/.bashrc
-ln -sf ${REPO_DIR}/.functions ~/.functions
-
+##
+ # warn to set up bash_profile
+ ##
 if ! [ -f ~/.bash_profile ]; then
   echo "Set up your .bash_profile..."
   cp ./.bash_profile ~
