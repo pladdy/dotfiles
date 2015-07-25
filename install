@@ -26,8 +26,6 @@ if ! [ -d ~/.vim ]; then
   ln -sf ${REPO_DIR}/.vim ~/.vim
 fi
 
-echo "re-creating links..."
-
 for file in ${FILES[@]}; do
   ln -sf ${REPO_DIR}/${file} ~/${file}
 done
