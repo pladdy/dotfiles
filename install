@@ -9,8 +9,9 @@ echo "backing up old files to .old"
 
 declare -a FILES=(.vimrc .aliases .bashrc .functions .colors)
 
-for file in ${FILES}; do
-  if [ -f ~/${file} ]; then
+for file in ${FILES[@]}; do
+  if [ -f ~/${file} -a ! -h ~/${file} ]; then
+    echo "backing up ${file}..."
     mv ~/${file} ~/${file}.old
   fi
 done
@@ -25,7 +26,9 @@ if ! [ -d ~/.vim ]; then
   ln -sf ${REPO_DIR}/.vim ~/.vim
 fi
 
-for file in ${FILES}; do
+echo "re-creating links..."
+
+for file in ${FILES[@]}; do
   ln -sf ${REPO_DIR}/${file} ~/${file}
 done
 
