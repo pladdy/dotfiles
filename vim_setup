@@ -6,27 +6,25 @@ get_plugin_dir_name() {
   echo $dir_name
 }
 
-# set up my destination directory and the plugins
-bundle_dir=./.vim/bundle
-
 declare -a plugins=(
   "scrooloose/nerdtree.git"
   "Xuyuanp/nerdtree-git-plugin.git"
-  # "jistr/vim-nerdtree-tabs"
 )
 
 ##
  # check if plugins are installed by seeing if a .git dir is in the
  # corresponding directory of the plugin; if not clone.
  ##
+BUNDLE_DIR=.vim/bundle
+
 for plugin in "${plugins[@]}"
 do
-  dir_name=$bundle_dir/$(get_plugin_dir_name $plugin)
+  DIR_NAME=${BUNDLE_DIR}/$(get_plugin_dir_name $plugin)
 
-  if [ ! -d $dir_name/.git ]
+  if [ ! -d ${DIR_NAME}/.git ]
   then
-    git clone git@github.com:$plugin $dir_name
+    git clone git@github.com:$plugin $DIR_NAME
   else
-    echo "$plugin seems to be installed; rm -rf $dir_name to re-install"
+    echo "$plugin seems to be installed; rm -rf $DIR_NAME to re-install"
   fi
 done
