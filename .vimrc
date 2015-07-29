@@ -21,15 +21,15 @@ set mat=2     " blink for above
 
 set backspace=eol,start,indent " configure backspace
 
-" add a ruler at 80 chars
+" add a ruler
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=120
   highlight ColorColumn ctermbg=brown guibg=brown
 endif
 
-" highlight text after 80 columns
+" highlight text after ruler
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%>81v.\+/
+match OverLength /\%>121v.\+/
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
