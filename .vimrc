@@ -43,3 +43,5 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 autocmd VimEnter * NERDTree | wincmd p " nerd tree; open in second window
 let NERDTreeShowHidden=1               " show hidden files/dirs
 let g:NERDTreeDirArrows=0              " fix directories in older vims
+
+set mouse=a " let me scroll with mouse
