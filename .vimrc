@@ -23,13 +23,13 @@ set backspace=eol,start,indent " configure backspace
 
 " add a ruler
 if exists('+colorcolumn')
-  set colorcolumn=120
+  set colorcolumn=100
   highlight ColorColumn ctermbg=brown guibg=brown
 endif
 
 " highlight text after ruler
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%>121v.\+/
+match OverLength /\%>101v.\+/
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
