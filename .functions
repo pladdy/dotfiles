@@ -10,6 +10,9 @@
   printf "removing ip from known hosts: $sed_str\n"
   eval $sed_str
   ssh -o StrictHostKeyChecking=no -A mpladna@192.168.66.$vm
+  # mounts; commenting out in case these persist
+  # sshfs mpladna@192.168.66.128:/build ~/remotes/build
+  # sshfs mpladna@192.168.66.128:/home/mpladna home/
 }
 
 kill-ssh-agents() {
