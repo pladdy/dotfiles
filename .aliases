@@ -2,9 +2,14 @@ alias h='history'
 alias crontab="VIM_CRONTAB=true crontab"
 
 # if gls utils are installed
-if [ $(which gls) ]; then
-  alias ls="$(which gls)  --color"
+if command -v gls > /dev/null; then
+  alias ls="$(which gls) --color"
   alias ll='ls -al'
+# or if we have coreutils installed over the default bash stuff
+elif [[ $(ls --version | head -1) =~ coreutils ]]; then
+  alias ls="$(which ls) --color"
+  alias ll='ls -al'
+# default to regular ol' ls
 else
   alias ls='-G'
   alias ls='ls -al'

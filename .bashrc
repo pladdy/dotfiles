@@ -15,7 +15,7 @@ export CLICOLOR=1
 export LSCOLORS=ExGxcxdxCxegedabagacad
 
 # if gdircolors is installed
-if [ $(which gdircolors) ]; then
+if command -v gls > /dev/null; then
   eval `/usr/local/bin/gdircolors -b`
 fi
 
