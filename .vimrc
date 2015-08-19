@@ -45,3 +45,6 @@ let NERDTreeShowHidden=1               " show hidden files/dirs
 let g:NERDTreeDirArrows=0              " fix directories in older vims
 
 set mouse=a " let me scroll with mouse
+
+" disable folding for vim-markdown
+let g:vim_markdown_folding_disabled=1

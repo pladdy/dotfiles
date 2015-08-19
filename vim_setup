@@ -9,6 +9,7 @@ get_plugin_dir_name() {
 declare -a plugins=(
   "scrooloose/nerdtree.git"
   "Xuyuanp/nerdtree-git-plugin.git"
+  "plasticboy/vim-markdown.git"
 )
 
 ##
