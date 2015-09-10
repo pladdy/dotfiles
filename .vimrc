@@ -28,8 +28,8 @@ if exists('+colorcolumn')
 endif
 
 " highlight text after ruler
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%>101v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%>101v.\+/
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
