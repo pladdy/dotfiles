@@ -6,9 +6,8 @@ budvar() {
   : ${host:=192.168.66.128}
 
   # remove the ip address from known_hosts
-  sed_str="sed -i .bak '/^${host}/d' ~/.ssh/known_hosts"
   printf "removing ip from known hosts: $sed_str\n"
-  eval $sed_str
+  ssh-keygen -R ${host}
   ssh -o StrictHostKeyChecking=no -A mpladna@${host}
   # mounts; commenting out in case these persist
   # sshfs mpladna@192.168.66.128:/build ~/remotes/build
