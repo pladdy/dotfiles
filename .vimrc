@@ -23,7 +23,7 @@ set backspace=eol,start,indent " configure backspace
 
 " add a ruler
 if exists('+colorcolumn')
-  set colorcolumn=100
+  set colorcolumn=80
   highlight ColorColumn ctermbg=brown guibg=brown
 endif
 
