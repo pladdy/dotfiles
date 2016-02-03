@@ -7,7 +7,14 @@ REPO_DIR=$(cd $(dirname $0) && pwd)
  ##
 echo "backing up old files to .old"
 
-declare -a FILES=(.vimrc .aliases .bashrc .functions .colors)
+declare -a FILES=(
+  .vimrc
+  .aliases
+  .bashrc
+  .functions
+  .colors
+  .lein/profiles.clj
+)
 
 for file in ${FILES[@]}; do
   if [ -f ~/${file} -a ! -h ~/${file} ]; then
