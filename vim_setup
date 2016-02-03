@@ -10,6 +10,7 @@ declare -a plugins=(
   "scrooloose/nerdtree.git"
   "Xuyuanp/nerdtree-git-plugin.git"
   "plasticboy/vim-markdown.git"
+  "tpope/vim-fireplace.git"
 )
 
 ##
