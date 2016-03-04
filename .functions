@@ -1,5 +1,5 @@
 ##
- # utility functiong for removing a host from known_hosts and logging in
+ # utility function for removing a host from known_hosts and logging in
  ##
 budvar() {
   local host=$1
@@ -14,6 +14,49 @@ budvar() {
   # sshfs mpladna@192.168.66.128:/home/mpladna home/
 }
 
-kill-ssh-agents() {
+##
+ # kill the plethora of ssh-agents...not sure i need this anymore
+ ##
+kill_ssh_agents() {
   ps x | grep ssh | cut -d " " -f1 -f2 | xargs kill -KILL
+}
+
+##
+ # given 'head' or 'tail', a directory, and optional search, find the file
+ # Arguments:
+ #   command     [head, tail]
+ #   directory
+ #   file string [optional: string to search for]
+ ##
+find_the_file() {
+  if [ "$1" != "head" -a "$1" != "tail" ]; then
+    echo "Command must be head or tail"
+    return 1
+  fi
+
+  if [ -d "$2" ]; then
+    if [ -n "$3" ]; then
+      local search_string="-wholename *$3*"
+    fi
+    find $2 ${search_string} | sort | $1 -n 1
+  else
+    echo "Need a directory"
+    return 1
+  fi
+}
+
+first_file() {
+  find_the_file head $1 $2
+}
+
+show_first_file() {
+  first_file $1 $2 | xargs less
+}
+
+last_file() {
+  find_the_file tail $1 $2
+}
+
+show_last_file() {
+  last_file $1 $2 | xargs less
 }
