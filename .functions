@@ -21,6 +21,10 @@ kill_ssh_agents() {
   ps x | grep ssh | cut -d " " -f1 -f2 | xargs kill -KILL
 }
 
+####
+## file utilities
+####
+
 ##
  # given 'head' or 'tail', a directory, and optional search, find the file
  # Arguments:
@@ -45,18 +49,46 @@ find_the_file() {
   fi
 }
 
+##
+# API
+###
+
+##
+ # takes a directory and will look for the first file in that directory; uses
+ # find so it searches recursively into subdirectories for the latest file
+ # in the entire directory.
+ #
+ # Arguments:
+ #  directory
+ #  search string [optional]
+ ##
 first_file() {
   find_the_file head $1 $2
 }
 
+##
+ # same as first_file but displays the file via less
+ ##
 show_first_file() {
   first_file $1 $2 | xargs less
 }
 
+##
+ # takes a directory and will look for the last file in that directory; uses
+ # find so it searches recursively into subdirectories for the latest file
+ # in the entire directory.
+ #
+ # Arguments:
+ #  directory
+ #  search string [optional]
+ ##
 last_file() {
   find_the_file tail $1 $2
 }
 
+##
+ # same as last_file but displays the file via less
+ ##
 show_last_file() {
   last_file $1 $2 | xargs less
 }
