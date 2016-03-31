@@ -38,7 +38,7 @@ find_the_file() {
     if [ -n "$3" ]; then
       local search_string="-wholename *$3*"
     fi
-    find $2 ${search_string} | sort | $1 -n 1
+    find $2 -type f ${search_string} | sort | $1 -n 1
   else
     echo "Need a directory"
     return 1
