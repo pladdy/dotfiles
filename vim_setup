@@ -11,6 +11,7 @@ declare -a plugins=(
   "Xuyuanp/nerdtree-git-plugin.git"
   "plasticboy/vim-markdown.git"
   "tpope/vim-fireplace.git"
+  "rust-lang/rust.vim.git"
 )
 
 ##
