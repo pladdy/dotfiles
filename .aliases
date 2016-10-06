@@ -14,3 +14,7 @@ else
   alias ls='-G'
   alias ls='ls -Al'
 fi
+
+# bundler
+alias b="bundle"
+alias bi="bundle install --path vendor/bundler"
