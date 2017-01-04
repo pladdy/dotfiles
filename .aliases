@@ -18,3 +18,4 @@ fi
 # bundler
 alias b="bundle"
 alias bi="bundle install --path vendor/bundler"
+alias be="bundle exec"
