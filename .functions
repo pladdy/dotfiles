@@ -22,7 +22,7 @@ kill_ssh_agents() {
 }
 
 ####
-## file utilities
+# file utilities
 ####
 
 ##
@@ -49,9 +49,9 @@ find_the_file() {
   fi
 }
 
-##
+####
 # API
-###
+####
 
 ##
  # takes a directory and will look for the first file in that directory; uses

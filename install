@@ -8,12 +8,14 @@ REPO_DIR=$(cd $(dirname $0) && pwd)
 echo "backing up old files to .old"
 
 declare -a FILES=(
-  .vimrc
   .aliases
   .bashrc
-  .functions
   .colors
+  .functions
+  .gitconfig
+  .gitignore_global
   .lein/profiles.clj
+  .vimrc
 )
 
 for file in ${FILES[@]}; do
