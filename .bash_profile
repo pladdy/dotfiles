@@ -1,5 +1,10 @@
-# simple shell of a profile
 if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
+    . ~/.bashrc
 fi
 
+export EDITOR=vim
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOPATH/bin
+
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"

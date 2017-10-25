@@ -9,6 +9,7 @@ echo "backing up old files to .old"
 
 declare -a FILES=(
   .aliases
+  .bash_profile
   .bashrc
   .colors
   .functions
