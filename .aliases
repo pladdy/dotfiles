@@ -11,11 +11,13 @@ elif [[ $(ls --version | head -1) =~ coreutils ]]; then
   alias ll='ls -Al'
 # default to regular ol' ls
 else
-  alias ls='-G'
-  alias ls='ls -Al'
+  alias ls='$(which ls) -G'
+  alias ll='ls -Al'
 fi
 
 # bundler
-alias b="bundle"
+alias b=bundle
 alias bi="bundle install --path vendor/bundler"
 alias be="bundle exec"
+
+alias git=hub

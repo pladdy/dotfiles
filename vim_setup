@@ -12,6 +12,7 @@ declare -a plugins=(
   "plasticboy/vim-markdown.git"
   "tpope/vim-fireplace.git"
   "rust-lang/rust.vim.git"
+  "fatih/vim-go.git"
 )
 
 ##
