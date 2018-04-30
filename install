@@ -37,7 +37,7 @@ if ! [ -d ~/.vim ]; then
 fi
 
 for file in ${FILES[@]}; do
-  ln -sf ${REPO_DIR}/${file} ~/${file}
+  ln -sf ${REPO_DIR}/${file} ~/${file} > /dev/null
 done
 
 ##
