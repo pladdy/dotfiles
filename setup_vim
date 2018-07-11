@@ -13,6 +13,7 @@ declare -a plugins=(
   "tpope/vim-fireplace.git"
   "rust-lang/rust.vim.git"
   "fatih/vim-go.git"
+  "rodjek/vim-puppet"
 )
 
 ##
