@@ -47,3 +47,15 @@ if ! [ -f ~/.bash_profile ]; then
   echo "Set up your .bash_profile..."
   cp ./.bash_profile ~
 fi
+
+##
+ # install lazy git
+ ##
+if [ "$(uname)" == "Darwin" ]; then
+  brew tap jesseduffield/lazygit
+  brew install lazygit
+else
+  sudo add-apt-repository ppa:lazygit-team/daily
+  sudo apt-get update
+  sudo apt-get install lazygit
+fi

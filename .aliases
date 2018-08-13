@@ -17,7 +17,8 @@ fi
 
 # bundler
 alias b=bundle
-alias bi="bundle install --path vendor/bundler"
+alias bi="bundle install --path vendor/bundle"
 alias be="bundle exec"
 
 alias git=hub
+alias gg=lazygit
