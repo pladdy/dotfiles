@@ -1,5 +1,13 @@
-alias h='history'
 alias crontab="VIM_CRONTAB=true crontab"
+alias h='history'
+
+# python aliases
+alias pip='pip3'
+alias python='python3'
+
+# python virtualenv
+alias act='source venv/bin/activate'
+alias deact='deactivate'
 
 # if gls utils are installed
 if command -v gls > /dev/null; then
