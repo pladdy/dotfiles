@@ -24,3 +24,4 @@ export EDITOR=vim
 # man bash; check PROMPTING
 export PS1="\\[${txtylw}\\]\u\\[${bldwht}\\]@\\[${txtgrn}\\]\h\\[${bldwht}\\]:\\[${bldpur}\\]\A\\[${bldwht}\\]:\\[${bldcyn}\\]\w\\[${txtrst}\\]$ "
 
+eval "$(direnv hook bash)"
