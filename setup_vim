@@ -7,13 +7,14 @@ get_plugin_dir_name() {
 }
 
 declare -a plugins=(
-  "scrooloose/nerdtree.git"
-  "Xuyuanp/nerdtree-git-plugin.git"
-  "plasticboy/vim-markdown.git"
-  "tpope/vim-fireplace.git"
-  "rust-lang/rust.vim.git"
-  "fatih/vim-go.git"
+  "scrooloose/nerdtree"
+  "Xuyuanp/nerdtree-git-plugin"
+  "plasticboy/vim-markdown"
+  "tpope/vim-fireplace"
+  "rust-lang/rust.vim"
+  "fatih/vim-go"
   "rodjek/vim-puppet"
+  "w0rp/ale"
 )
 
 ##
