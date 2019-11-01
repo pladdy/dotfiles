@@ -34,3 +34,7 @@ do
     echo "$plugin seems to be installed; rm -rf $DIR_NAME to re-install"
   fi
 done
+
+if which brew; then
+  brew install direnv lazygit
+fi
