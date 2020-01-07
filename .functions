@@ -1,7 +1,7 @@
 ##
- # utility function for removing a host from known_hosts and logging in
- ##
-budvar() {
+# utility function for removing a host from known_hosts and logging in
+##
+skr() {
   local host=$1
   : ${host:=192.168.66.128}
 
@@ -9,14 +9,11 @@ budvar() {
   printf "removing ip from known hosts: $sed_str\n"
   ssh-keygen -R ${host}
   ssh -o StrictHostKeyChecking=no -A mpladna@${host}
-  # mounts; commenting out in case these persist
-  # sshfs mpladna@192.168.66.128:/build ~/remotes/build
-  # sshfs mpladna@192.168.66.128:/home/mpladna home/
 }
 
 ##
- # kill the plethora of ssh-agents...not sure i need this anymore
- ##
+# kill the plethora of ssh-agents...not sure i need this anymore
+##
 kill_ssh_agents() {
   ps x | grep ssh | cut -d " " -f1 -f2 | xargs kill -KILL
 }
@@ -26,12 +23,12 @@ kill_ssh_agents() {
 ####
 
 ##
- # given 'head' or 'tail', a directory, and optional search, find the file
- # Arguments:
- #   command     [head, tail]
- #   directory
- #   file string [optional: string to search for]
- ##
+# given 'head' or 'tail', a directory, and optional search, find the file
+# Arguments:
+#   command     [head, tail]
+#   directory
+#   file string [optional: string to search for]
+##
 find_the_file() {
   if [ "$1" != "head" -a "$1" != "tail" ]; then
     echo "Command must be head or tail"
@@ -54,41 +51,52 @@ find_the_file() {
 ####
 
 ##
- # takes a directory and will look for the first file in that directory; uses
- # find so it searches recursively into subdirectories for the latest file
- # in the entire directory.
- #
- # Arguments:
- #  directory
- #  search string [optional]
- ##
+# takes a directory and will look for the first file in that directory; uses
+# find so it searches recursively into subdirectories for the latest file
+# in the entire directory.
+#
+# Arguments:
+#  directory
+#  search string [optional]
+##
 first_file() {
   find_the_file head $1 $2
 }
 
 ##
- # same as first_file but displays the file via less
- ##
+# same as first_file but displays the file via less
+##
 show_first_file() {
   first_file $1 $2 | xargs less
 }
 
 ##
- # takes a directory and will look for the last file in that directory; uses
- # find so it searches recursively into subdirectories for the latest file
- # in the entire directory.
- #
- # Arguments:
- #  directory
- #  search string [optional]
- ##
+# takes a directory and will look for the last file in that directory; uses
+# find so it searches recursively into subdirectories for the latest file
+# in the entire directory.
+#
+# Arguments:
+#  directory
+#  search string [optional]
+##
 last_file() {
   find_the_file tail $1 $2
 }
 
 ##
- # same as last_file but displays the file via less
- ##
+# same as last_file but displays the file via less
+##
 show_last_file() {
   last_file $1 $2 | xargs less
+}
+
+##
+# gitlab clone
+#
+# Arguments:
+#   repository [string]
+##
+gc() {
+  GITLAB_HOST=gitlab.s.fpint.net
+  git clone git@g$GITLAB_HOST:$1
 }

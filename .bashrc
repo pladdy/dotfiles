@@ -1,14 +1,14 @@
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
-fi
+declare -a dotfiles=(
+  .aliases
+  .colors
+  .functions
+)
 
-if [ -f ~/.functions ]; then
-  source ~/.functions
-fi
-
-if [ -f ~/.colors ]; then
-  source ~/.colors
-fi
+for file in ${dotfiles[@]}; do
+  if [ -f ~/.$file ]; then
+    source ~/.$file
+  fi
+done
 
 # man ls and check LSCOLORS section
 export CLICOLOR=1
@@ -19,9 +19,10 @@ if command -v gls > /dev/null; then
   eval `/usr/local/bin/gdircolors -b`
 fi
 
-export EDITOR=vim
-
 # man bash; check PROMPTING
 export PS1="\\[${txtylw}\\]\u\\[${bldwht}\\]@\\[${txtgrn}\\]\h\\[${bldwht}\\]:\\[${bldpur}\\]\A\\[${bldwht}\\]:\\[${bldcyn}\\]\w\\[${txtrst}\\]$ "
 
 eval "$(direnv hook bash)"
+
+# add ssh key
+ssh-add ~/.ssh/id_rsa

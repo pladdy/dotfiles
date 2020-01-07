@@ -1,2 +1,3 @@
+.vim/pack/kite
 .vim/bundle/*
 *.swp

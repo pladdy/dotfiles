@@ -1,0 +1,15 @@
+"*":
+  core:
+    customFileTypes:
+      'source.shell': [
+        ".aliases"
+        ".bash_profile"
+        ".bashrc"
+        ".colors"
+        ".functions"
+        ".vimrc"
+      ]
+    telemetryConsent: "no"
+    useTreeSitterParsers: false
+  editor:
+    fontSize: 11

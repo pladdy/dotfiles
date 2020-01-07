@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
+set -eu
+
 get_plugin_dir_name() {
   local dir_name=${1##*/} # get repo name
   dir_name=${dir_name%.*} # remove .git
   echo $dir_name
 }
 
-declare -a plugins=(
+declare -a PLUGINS=(
   "scrooloose/nerdtree"
   "Xuyuanp/nerdtree-git-plugin"
   "plasticboy/vim-markdown"
@@ -23,18 +25,12 @@ declare -a plugins=(
  ##
 BUNDLE_DIR=.vim/bundle
 
-for plugin in "${plugins[@]}"
-do
-  DIR_NAME=${BUNDLE_DIR}/$(get_plugin_dir_name $plugin)
+for plugin in ${PLUGINS[@]}; do
+  DIR_NAME=$BUNDLE_DIR/$(get_plugin_dir_name $plugin)
 
-  if [ ! -d ${DIR_NAME}/.git ]
-  then
+  if [ ! -d $DIR_NAME/.git ]; then
     git clone git@github.com:$plugin $DIR_NAME
   else
     echo "$plugin seems to be installed; rm -rf $DIR_NAME to re-install"
   fi
 done
-
-if which brew; then
-  brew install direnv lazygit
-fi

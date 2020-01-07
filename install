@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-REPO_DIR=$(cd $(dirname $0) && pwd)
+set -eu
+
+WORKING_DIR=$(cd $(dirname $0) && pwd)
 
 ##
- # back up files before creating links
- ##
+# back up files before creating links
+##
 echo "backing up old files to .old"
+
+declare -a DIRS=(
+  .atom
+  .vim
+)
 
 declare -a FILES=(
   .aliases
@@ -15,45 +22,48 @@ declare -a FILES=(
   .functions
   .gitconfig
   .gitignore_global
-  .lein/profiles.clj
   .vimrc
 )
 
 for file in ${FILES[@]}; do
-  if [ -f ~/${file} -a ! -h ~/${file} ]; then
-    echo "backing up ${file}..."
-    mv ~/${file} ~/${file}.old
+  if [ -f ~/$file -a ! -h ~/$file ]; then
+    echo "backing up $file..."
+    mv ~/$file ~/$file.old
   fi
 done
 
 ##
- # create links
- ##
-echo "linking to new files"
+# create soft links
+##
+echo "Creating soft links"
 
 # only create directory link if not present (creates circular link otherwise)
-if ! [ -d ~/.vim ]; then
-  ln -sf ${REPO_DIR}/.vim ~/.vim
-fi
-
-for file in ${FILES[@]}; do
-  ln -sf ${REPO_DIR}/${file} ~/${file} > /dev/null
+for dir in ${DIRS[@]}; do
+  if ! [ -d ~/$dir ]; then
+    echo "creating softlink for $dir"
+    ln -sf $WORKING_DIR/$dir ~/$dir
+  fi
 done
 
-##
- # warn to set up bash_profile
- ##
-if ! [ -f ~/.bash_profile ]; then
-  echo "Set up your .bash_profile..."
-  cp ./.bash_profile ~
+for file in ${FILES[@]}; do
+  echo "creating softlink for $file"
+  ln -sf $WORKING_DIR/$file ~/$file > /dev/null
+done
+
+PROFILE=.bash_profile
+if ! [ -f ~/$PROFILE ]; then
+  echo "Modify your $PROFILE if needed"
+  cp ./$PROFILE ~
 fi
 
 ##
- # install lazy git
- ##
+# install home brew and desired packages
+##
 if [ "$(uname)" == "Darwin" ]; then
-  brew tap jesseduffield/lazygit
-  brew install lazygit
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install direnv docker hub lazygit
+  brew install python3 pyenv
+  pip3 install pandoc virtualenv
 else
   sudo add-apt-repository ppa:lazygit-team/daily
   sudo apt-get update
