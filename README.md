@@ -24,4 +24,4 @@ See [install](./install) for the nitty gritty.
 
 After install, set `.env` values as needed
 
-  - GITHUB_HOST: the host you'll clone projects from
+  - GIT_HOST: the host you'll clone projects from
