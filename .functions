@@ -1,0 +1,101 @@
+##
+# utility function for removing a host from known_hosts and logging in
+##
+skr() {
+  local host=$1
+  : ${host:=192.168.66.128}
+
+  # remove the ip address from known_hosts
+  printf "removing ip from known hosts: $sed_str\n"
+  ssh-keygen -R ${host}
+  ssh -o StrictHostKeyChecking=no -A mpladna@${host}
+}
+
+##
+# kill the plethora of ssh-agents...not sure i need this anymore
+##
+kill_ssh_agents() {
+  ps x | grep ssh | cut -d " " -f1 -f2 | xargs kill -KILL
+}
+
+####
+# file utilities
+####
+
+##
+# given 'head' or 'tail', a directory, and optional search, find the file
+# Arguments:
+#   command     [head, tail]
+#   directory
+#   file string [optional: string to search for]
+##
+find_the_file() {
+  if [ "$1" != "head" -a "$1" != "tail" ]; then
+    echo "Command must be head or tail"
+    return 1
+  fi
+
+  if [ -d "$2" ]; then
+    if [ -n "$3" ]; then
+      local search_string="-wholename *$3*"
+    fi
+    find $2 -type f ${search_string} | sort | $1 -n 1
+  else
+    echo "Need a directory"
+    return 1
+  fi
+}
+
+####
+# API
+####
+
+##
+# takes a directory and will look for the first file in that directory; uses
+# find so it searches recursively into subdirectories for the latest file
+# in the entire directory.
+#
+# Arguments:
+#  directory
+#  search string [optional]
+##
+first_file() {
+  find_the_file head $1 $2
+}
+
+##
+# same as first_file but displays the file via less
+##
+show_first_file() {
+  first_file $1 $2 | xargs less
+}
+
+##
+# takes a directory and will look for the last file in that directory; uses
+# find so it searches recursively into subdirectories for the latest file
+# in the entire directory.
+#
+# Arguments:
+#  directory
+#  search string [optional]
+##
+last_file() {
+  find_the_file tail $1 $2
+}
+
+##
+# same as last_file but displays the file via less
+##
+show_last_file() {
+  last_file $1 $2 | xargs less
+}
+
+##
+# gitlab clone
+#
+# Arguments:
+#   repository [string]
+##
+gc() {
+  git clone git@$GIT_HOST:$1
+}

@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -eu
+
+WORKING_DIR=$(cd $(dirname $0) && pwd)
+
+##
+# back up files before creating links
+##
+echo "backing up old files to .old"
+
+declare -a DIRS=(
+  .atom
+  .vim
+)
+
+declare -a FILES=(
+  .aliases
+  .bash_profile
+  .bashrc
+  .colors
+  .env
+  .functions
+  .gitconfig
+  .gitignore_global
+  .vimrc
+)
+
+for file in ${FILES[@]}; do
+  if [ -f ~/$file -a ! -h ~/$file ]; then
+    echo "backing up $file..."
+    mv ~/$file ~/$file.old
+  fi
+done
+
+##
+# create soft links
+##
+echo "Creating soft links"
+
+# only create directory link if not present (creates circular link otherwise)
+for dir in ${DIRS[@]}; do
+  if ! [ -d ~/$dir ]; then
+    echo "creating softlink for $dir"
+    ln -sf $WORKING_DIR/$dir ~/$dir
+  fi
+done
+
+for file in ${FILES[@]}; do
+  echo "creating softlink for $file"
+  ln -sf $WORKING_DIR/$file ~/$file > /dev/null
+done
+
+PROFILE=.bash_profile
+if ! [ -f ~/$PROFILE ]; then
+  echo "Modify your $PROFILE if needed"
+  cp ./$PROFILE ~
+fi
+
+##
+# install home brew and desired packages
+##
+if [ "$(uname)" == "Darwin" ]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install direnv docker hub lazygit
+  brew install python3 pyenv
+  pip3 install pandoc virtualenv
+else
+  sudo add-apt-repository ppa:lazygit-team/daily
+  sudo apt-get update
+  sudo apt-get install lazygit
+fi

@@ -1,0 +1,7 @@
+[user]
+	name = Matt Pladna
+	email = pladdypants@gmail.com
+[push]
+	default = simple
+[core]
+	excludesfile = /Users/pladdypants/.gitignore_global

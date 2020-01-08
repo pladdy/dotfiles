@@ -1,0 +1,35 @@
+alias crontab="VIM_CRONTAB=true crontab"
+alias h='history'
+
+# python aliases
+alias pip='pip3'
+alias python='python3'
+
+# python virtualenv
+alias act='source venv/bin/activate'
+alias deact='deactivate'
+
+# if gls utils are installed
+if command -v gls > /dev/null; then
+  alias ls="$(which gls) --color"
+  alias ll='ls -Al'
+# or if we have coreutils installed over the default bash stuff
+elif [[ $(ls --version | head -1) =~ coreutils ]]; then
+  alias ls="$(which ls) --color"
+  alias ll='ls -Al'
+# default to regular ol' ls
+else
+  alias ls='$(which ls) -G'
+  alias ll='ls -Al'
+fi
+
+# bundler
+alias b=bundle
+alias bi="bundle install --path vendor"
+alias be="bundle exec"
+
+alias gg=lazygit
+
+if [ "$(uname)" == "Darwin" ]; then
+  alias git=hub
+fi
