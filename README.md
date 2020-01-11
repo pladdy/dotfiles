@@ -25,3 +25,12 @@ See [install](./install) for the nitty gritty.
 After install, set `.env` values as needed
 
   - GIT_HOST: the host you'll clone projects from
+
+### References
+
+  - `direnv` provided by [direnv.net](https://direnv.net/)
+  - `docker` provided by [Docker](https://docs.docker.com/)
+  - `jq` provided by [jq](https://stedolan.github.io/jq/)
+  - `http` provided by [Httpie](https://httpie.org/), installed by Brew
+  - `hub` provided by [hub](https://hub.github.com/)
+  - `lazygit`, aliased to `gg`, provided by [JesseDuffield](https://github.com/jesseduffield/lazygit)
