@@ -1,4 +1,18 @@
 ##
+# list makefile rules
+##
+mkr() {
+  egrep '^.+:$' Makefile
+}
+
+##
+# kill the plethora of ssh-agents...not sure i need this anymore
+##
+kill_ssh_agents() {
+  ps x | grep ssh | cut -d " " -f1 -f2 | xargs kill -KILL
+}
+
+##
 # utility function for removing a host from known_hosts and logging in
 ##
 skr() {
@@ -9,13 +23,6 @@ skr() {
   printf "removing ip from known hosts: $sed_str\n"
   ssh-keygen -R ${host}
   ssh -o StrictHostKeyChecking=no -A mpladna@${host}
-}
-
-##
-# kill the plethora of ssh-agents...not sure i need this anymore
-##
-kill_ssh_agents() {
-  ps x | grep ssh | cut -d " " -f1 -f2 | xargs kill -KILL
 }
 
 ####

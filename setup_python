@@ -7,8 +7,11 @@ WORKING_DIR=$(cd $(dirname $0) && pwd)
 ##
 # assumes homebrew is installed by running install
 ##
-brew install python3 pyenv
-pip3 install pandoc virtualenv distutils rst2html5
+brew install python3 pyenv pandoc
+pip3 install virtualenv distutils rst2html5 tox
+
+# atom io dep
+python -m pip install 'python-language-server[all]'
 
 # rst2html must be a python2 lib/cli, alias it for atom.io package linter-rst
 ln -sf /usr/local/bin/rst2html5 /usr/local/bin/rst2html
