@@ -9,7 +9,8 @@ export EDITOR=vim
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
+# python (poetry, pipx)
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$PATH:/Users/user84791850/.local/bin"
 
-eval "$(pyenv init -)"
 

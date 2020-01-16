@@ -1,10 +1,6 @@
 alias crontab="VIM_CRONTAB=true crontab"
 alias h='history'
 
-# python aliases
-alias pip='pip3'
-alias python='python3'
-
 # python virtualenv
 alias act='source venv/bin/activate'
 alias deact='deactivate'
