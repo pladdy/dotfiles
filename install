@@ -62,7 +62,7 @@ fi
 ##
 if [ "$(uname)" == "Darwin" ]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew install direnv docker httpie hub jq lazygit wget
+  brew install direnv docker httpie hub jq lazygit wget cookiecutter
 else
   sudo add-apt-repository ppa:lazygit-team/daily
   sudo apt-get update
