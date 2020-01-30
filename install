@@ -21,7 +21,6 @@ declare -a FILES=(
   .colors
   .env
   .functions
-  .gitconfig
   .gitignore_global
   .vimrc
 )
@@ -54,6 +53,7 @@ done
 PROFILE=.bash_profile
 if ! [ -f ~/$PROFILE ]; then
   echo "Modify your $PROFILE if needed"
+  echo "Create/Modify a ~/.gitconfig file"
   cp ./$PROFILE ~
 fi
 

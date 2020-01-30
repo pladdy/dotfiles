@@ -5,9 +5,9 @@ fi
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=vim
 
-# add local [s]bin
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
+# add local [s]bin to end of path
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/sbin
 
 # python (poetry, pipx)
 export PATH="$HOME/.poetry/bin:$PATH"
