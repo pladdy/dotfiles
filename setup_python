@@ -7,9 +7,13 @@ WORKING_DIR=$(cd $(dirname $0) && pwd)
 ##
 # assumes homebrew is installed by running install
 ##
-brew install openssl pyenv python pipx
+brew install openssl python pipx
 
-pipx install rst2html5 tox virtualenv
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+
+pipx install rst2html5
+pipx install tox
+pipx install virtualenv
 
 # rst2html must be a python2 lib/cli, alias it for atom.io package linter-rst
 ln -sf /usr/local/bin/rst2html5 /usr/local/bin/rst2html
@@ -19,4 +23,3 @@ pip3 install pandoc
 
 # atom io dep
 python -m pip install 'python-language-server[all]'
-

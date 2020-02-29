@@ -11,6 +11,7 @@ export PATH=$PATH:/usr/local/sbin
 
 # python (poetry, pipx)
 export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="$PATH:/Users/user84791850/.local/bin"
+export PATH="$PATH:$(echo ~)/.local/bin"
 
-
+# TODO: set up PYTHONSTARTUP to personalize the prompt in python ide
+# https://arpitbhayani.me/blogs/python-prompts
