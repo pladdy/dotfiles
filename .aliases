@@ -5,6 +5,10 @@ alias h='history'
 alias act='source venv/bin/activate'
 alias deact='deactivate'
 
+# these aliases end up being self referencing, unalias first before defining
+unalias ls
+unalias ll
+
 # if gls utils are installed
 if command -v gls > /dev/null; then
   alias ls="$(which gls) --color"
