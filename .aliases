@@ -6,8 +6,8 @@ alias act='source venv/bin/activate'
 alias deact='deactivate'
 
 # these aliases end up being self referencing, unalias first before defining
-unalias ls
-unalias ll
+unalias ls &> /dev/null
+unalias ll &> /dev/null
 
 # if gls utils are installed
 if command -v gls > /dev/null; then
