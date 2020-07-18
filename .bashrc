@@ -27,4 +27,4 @@ export PS1="\\[${txtylw}\\]\u\\[${bldwht}\\]@\\[${txtgrn}\\]\h\\[${bldwht}\\]:\\
 ssh-add ~/.ssh/id_rsa
 
 eval "$(direnv hook bash)"
-#eval "$(pyenv init -)"
+eval "$(rbenv init -)"

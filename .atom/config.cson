@@ -1,7 +1,7 @@
 "*":
   core:
     customFileTypes:
-      'source.shell': [
+      "source.shell": [
         ".aliases"
         ".bash_profile"
         ".bashrc"
@@ -12,4 +12,31 @@
     telemetryConsent: "no"
     useTreeSitterParsers: false
   editor:
+    autoIndentOnPaste: false
     fontSize: 11
+  "exception-reporting":
+    userId: "f1c0d494-f266-4512-bda5-9dca4e53101d"
+  "ide-python":
+    pylsPlugins:
+      autopep8: {}
+      flake8:
+        enabled: true
+        maxLineLength: 80
+      pydocstyle:
+        enabled: true
+      pylint:
+        enabled: true
+    python: "/Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8"
+  kite:
+    showWelcomeNotificationOnStartup: false
+  "linter-luacheck": {}
+  "linter-rst":
+    executablePath: "rst2html5"
+  "linter-ui-default":
+    panelHeight: 113
+    showPanel: true
+  "python-black":
+    lineLength: 80
+    showErrors: "flash"
+  "rst-preview-pandoc":
+    pandocOpts: "-fmarkdown_github -thtml --webtex"

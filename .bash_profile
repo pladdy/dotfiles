@@ -3,7 +3,11 @@ if [ -f ~/.bashrc ]; then
 fi
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export GIT_HOST=github.com:pladdy
 export EDITOR=vim
+
+# golang tools get installed here
+export PATH=$PATH:$HOME/bin
 
 # add local [s]bin to end of path
 export PATH=$PATH:/usr/local/bin
