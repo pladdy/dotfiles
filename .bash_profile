@@ -3,8 +3,9 @@ if [ -f ~/.bashrc ]; then
 fi
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export GIT_HOST=github.com:pladdy
 export EDITOR=vim
+export GIT_HOST=github.com:pladdy
+export GOPATH=~/go
 
 # golang tools get installed here
 export PATH=$PATH:$HOME/bin
@@ -30,6 +31,7 @@ if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-clo
 # The orginal version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
 
 # make mongo bin files available

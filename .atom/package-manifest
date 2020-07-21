@@ -1,9 +1,10 @@
 # list of packages i've installed/used; in case i lose .atom directory...
 
-autocomplete-python
-busy-signal
+atom-ide-ui
+go-debug
+go-plus
+go-signature-statusbar
 ide-python
-intentions
 kite
 language-docker
 language-lua
@@ -13,11 +14,9 @@ linter
 linter-docker
 linter-flake8
 linter-golinter
-linter-js-yaml
 linter-lua
 linter-rst
 linter-swagger
 linter-ui-default
 python-black
-python-indent
 rst-preview-pandoc
