@@ -29,6 +29,7 @@ alias bi="bundle install --path vendor"
 alias be="bundle exec"
 
 alias gg=lazygit
+alias gd=lazydocker
 
 if [ "$(uname)" == "Darwin" ]; then
   alias git=hub
