@@ -1,0 +1,22 @@
+# list of packages i've installed/used; in case i lose .atom directory...
+
+atom-ide-ui
+go-debug
+go-plus
+go-signature-statusbar
+ide-python
+kite
+language-docker
+language-lua
+language-restructuredtext
+language-terraform
+linter
+linter-docker
+linter-flake8
+linter-golinter
+linter-lua
+linter-rst
+linter-swagger
+linter-ui-default
+python-black
+rst-preview-pandoc

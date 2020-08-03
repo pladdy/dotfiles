@@ -4,6 +4,11 @@ fi
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=vim
+export GIT_HOST=github.com:pladdy
+export GOPATH=~/go
+
+# golang tools get installed here
+export PATH=$PATH:$HOME/bin
 
 # add local [s]bin to end of path
 export PATH=$PATH:/usr/local/bin

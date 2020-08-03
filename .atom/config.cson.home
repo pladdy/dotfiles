@@ -1,4 +1,7 @@
 "*":
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
   core:
     customFileTypes:
       "source.shell": [
@@ -33,10 +36,8 @@
   "linter-rst":
     executablePath: "rst2html5"
   "linter-ui-default":
-    panelHeight: 113
-    showPanel: true
+    panelHeight: 179
   "python-black":
     lineLength: 80
     showErrors: "flash"
-  "rst-preview-pandoc":
-    pandocOpts: "-fmarkdown_github -thtml --webtex"
+  "rst-preview-pandoc": {}
