@@ -9,11 +9,12 @@ WORKING_DIR=$(cd $(dirname $0) && pwd)
 ##
 brew install openssl python pipx
 
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+make poetry
 
-pipx install rst2html5
-pipx install tox
-pipx install virtualenv
+for package in black rst2html5; do
+  pipx uninstall $package
+  pipx install $package
+done
 
 # rst2html must be a python2 lib/cli, alias it for atom.io package linter-rst
 ln -sf /usr/local/bin/rst2html5 /usr/local/bin/rst2html

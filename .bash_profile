@@ -2,11 +2,6 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-export EDITOR=vim
-export GIT_HOST=github.com:pladdy
-export GOPATH=~/go
-
 # golang tools get installed here
 export PATH=$PATH:$HOME/bin
 
@@ -15,7 +10,6 @@ export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/sbin
 
 # python (poetry, pipx)
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 # TODO: set up PYTHONSTARTUP to personalize the prompt in python ide
@@ -40,3 +34,5 @@ export PATH="/usr/local/opt/mongodb-community@3.2/bin:$PATH"
 
 # use 0.11 of terraform
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
