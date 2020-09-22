@@ -31,6 +31,9 @@ alias be="bundle exec"
 alias gg=lazygit
 alias gd=lazydocker
 
+alias cat="bat --paging=never $1"
+alias less=bat
+
 if [ "$(uname)" == "Darwin" ]; then
   alias git=hub
 fi
