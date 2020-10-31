@@ -2,11 +2,6 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-export EDITOR=vim
-export GIT_HOST=github.com:pladdy
-export GOPATH=~/go
-
 # golang tools get installed here
 export PATH=$PATH:$HOME/bin
 
@@ -15,7 +10,6 @@ export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/sbin
 
 # python (poetry, pipx)
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 # TODO: set up PYTHONSTARTUP to personalize the prompt in python ide
@@ -27,14 +21,24 @@ if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
 
-# Setting PATHs for Python X.Y; in descending order
-# The orginal version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+# Setting PATHs for Python X.Y
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin"
+export PATH="$PATH:/Users/user84791850/Library/Python/2.7/bin"
 
 # make mongo bin files available
 export PATH="/usr/local/opt/mongodb-community@3.2/bin:$PATH"
 
+# use 0.11 of terraform
+export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/user84791850/.sdkman"
+[[ -s "/Users/user84791850/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/user84791850/.sdkman/bin/sdkman-init.sh"
+
+export JAVA_HOME=$(sdk home java 8.0.265.j9-adpt)
+export PATH="$PATH:$(sdk home scala 2.13.3)/bin"
+
+export PATH="$HOME/.poetry/bin:$PATH"

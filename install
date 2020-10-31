@@ -61,10 +61,18 @@ fi
 # install home brew and desired packages
 ##
 if [ "$(uname)" == "Darwin" ]; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew install bat direnv docker httpie hub jq lazydocker lazygit wget cookiecutter
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  brew install direnv docker httpie hub jq lazydocker lazygit wget cookiecutter tree
+elif [ cat /etc/os-release | grep '^NAME' | sed 's/NAME=//' | sed 's/"//g' ~= "Centos" ]
+  sudo yum install dnf -y
+  sudo dnf install 'dnf-command(copr)'
+  sudo dnf copr enable atim/lazygit -y
+  sudo dnf install lazygit -y
+  sudo yum install tree
+  # for lazydocker:
+  # https://github.com/jesseduffield/lazydocker#binary-release-linuxosxwindows
 else
   sudo add-apt-repository ppa:lazygit-team/daily
   sudo apt-get update
-  sudo apt-get install lazygit
+  sudo apt-get install lazygit tree
 fi

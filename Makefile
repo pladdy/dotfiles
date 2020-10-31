@@ -1,7 +1,23 @@
-all: .env
-	./install
-	./setup_vim
-	./setup_python
+.PHONY: .env.local
+
+POETRY_VERSION=1.1.4
+
+all: .env install setup-vim setup-python
 
 .env:
-	@echo GIT_HOST= | cat > .env
+	cp $@.local $@
+
+clean:
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/$(POETRY_VERSION)/get-poetry.py | POETRY_UNINSTALL=1 python
+
+install:
+	./install
+
+poetry:
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/$(POETRY_VERSION)/get-poetry.py | POETRY_VERSION=$(POETRY_VERSION) python
+
+setup-python:
+	./setup_python
+
+setup-vim:
+	./setup_vim
