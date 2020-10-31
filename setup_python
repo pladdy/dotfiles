@@ -7,20 +7,15 @@ WORKING_DIR=$(cd $(dirname $0) && pwd)
 ##
 # assumes homebrew is installed by running install
 ##
-brew install openssl python pipx
+brew install openssl pipx
 
 make poetry
 
-for package in black rst2html5; do
+# install pipx utilities
+for package in black flake8 httpie-jwt-auth pandoc pyls rst2html5 virtualenv; do
   pipx uninstall $package
   pipx install $package
 done
 
-# rst2html must be a python2 lib/cli, alias it for atom.io package linter-rst
+# atom.io package linter-rst expects a 'rst2html' command; linke to rst2html5
 ln -sf /usr/local/bin/rst2html5 /usr/local/bin/rst2html
-
-# used by atom.io
-pip3 install pandoc
-
-# atom io dep
-python -m pip install 'python-language-server[all]'

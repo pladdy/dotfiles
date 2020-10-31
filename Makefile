@@ -1,6 +1,6 @@
 .PHONY: .env.local
 
-POETRY_VERSION=1.0.9
+POETRY_VERSION=1.1.4
 
 all: .env install setup-vim setup-python
 

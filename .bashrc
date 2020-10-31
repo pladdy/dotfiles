@@ -7,6 +7,7 @@ declare -a dotfiles=(
 
 for file in ${dotfiles[@]}; do
   if [ -f ~/$file ]; then
+    echo "Sourcing ~/$file"
     source ~/$file
   fi
 done
@@ -17,6 +18,7 @@ export LSCOLORS=ExGxcxdxCxegedabagacad
 
 # if gdircolors is installed
 if command -v gls > /dev/null; then
+  echo "Setting LSCOLORS"
   eval `/usr/local/bin/gdircolors -b`
 fi
 
@@ -24,8 +26,10 @@ fi
 export PS1="\\[${txtylw}\\]\u\\[${bldwht}\\]@\\[${txtgrn}\\]\h\\[${bldwht}\\]:\\[${bldpur}\\]\A\\[${bldwht}\\]:\\[${bldcyn}\\]\w\\[${txtrst}\\]$ "
 
 # add ssh key
+echo "Adding ssh key"
 ssh-add ~/.ssh/id_rsa
 
+echo "Enabling direnv hook"
 eval "$(direnv hook bash)"
 
 export NVM_DIR="$HOME/.nvm"
