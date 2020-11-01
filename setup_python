@@ -4,18 +4,28 @@ set -eu
 
 WORKING_DIR=$(cd $(dirname $0) && pwd)
 
-##
-# assumes homebrew is installed by running install
-##
+# install python tools before packages
 brew install openssl pipx
-
 make poetry
 
+declare -a PACKAGES=(
+  black
+  cookiecutter
+  flake8
+  httpie
+  httpie-jwt-auth
+  pyls
+  rst2html5
+  virtualenv
+)
+
 # install pipx utilities
-for package in black flake8 httpie-jwt-auth pandoc pyls rst2html5 virtualenv; do
-  pipx uninstall $package
-  pipx install $package
+for package in ${PACKAGES[@]}; do
+  if pipx uninstall $package; then
+    echo "Package '$package' not installed"
+  fi
+  pipx install $package --include-deps
 done
 
-# atom.io package linter-rst expects a 'rst2html' command; linke to rst2html5
+echo "Linking rst2html5 for atom.io"
 ln -sf /usr/local/bin/rst2html5 /usr/local/bin/rst2html

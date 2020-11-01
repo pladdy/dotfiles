@@ -21,6 +21,7 @@ Change defaults of .env settings in `.env.local` if desired.
 
 ### References
 
+-   `bat` provided by [sharkdp](https://github.com/sharkdp/bat)
 -   `direnv` provided by [direnv.net](https://direnv.net/)
 -   `docker` provided by [Docker](https://docs.docker.com/)
 -   `jq` provided by [jq](https://stedolan.github.io/jq/)

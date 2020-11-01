@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
 WORKING_DIR=$(cd $(dirname $0) && pwd)
 
@@ -40,30 +40,48 @@ echo "Creating soft links"
 # only create directory link if not present (creates circular link otherwise)
 for dir in ${DIRS[@]}; do
   if ! [ -d ~/$dir ]; then
-    echo "creating softlink for $dir"
+    echo "  Creating softlink for '$dir'."
     ln -sf $WORKING_DIR/$dir ~/$dir
   fi
 done
 
 for file in ${FILES[@]}; do
-  echo "creating softlink for $file"
+  echo "  Creating softlink for '$file'."
   ln -sf $WORKING_DIR/$file ~/$file > /dev/null
 done
 
 PROFILE=.bash_profile
 if ! [ -f ~/$PROFILE ]; then
-  echo "Modify your $PROFILE if needed"
-  echo "Create/Modify a ~/.gitconfig file"
+  echo "Modify your $PROFILE if needed."
+  echo "Create/Modify a ~/.gitconfig file."
   cp ./$PROFILE ~
 fi
 
 ##
 # install home brew and desired packages
 ##
+
+declare -a PACKAGES=(
+  bat
+  direnv
+  docker
+  hub
+  jq
+  lazydocker
+  lazygit
+  tree
+  wget
+)
+
+echo "Install home brew and packages."
 if [ "$(uname)" == "Darwin" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  brew install direnv docker httpie hub jq lazydocker lazygit wget cookiecutter tree
-elif [ cat /etc/os-release | grep '^NAME' | sed 's/NAME=//' | sed 's/"//g' ~= "Centos" ]
+  for package in ${PACKAGES[@]}; do
+    if ! brew install $package; then
+      echo "  Package '$package' already installed."
+    fi
+  done
+elif [ cat /etc/os-release | grep '^NAME' | sed 's/NAME=//' | sed 's/"//g' ~= "Centos" ]; then
   sudo yum install dnf -y
   sudo dnf install 'dnf-command(copr)'
   sudo dnf copr enable atim/lazygit -y

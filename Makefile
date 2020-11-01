@@ -1,4 +1,4 @@
-.PHONY: .env.local
+.PHONY: .env.local install
 
 POETRY_VERSION=1.1.4
 
