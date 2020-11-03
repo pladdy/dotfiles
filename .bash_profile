@@ -35,8 +35,8 @@ export PATH="/usr/local/opt/mongodb-community@3.2/bin:$PATH"
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/user84791850/.sdkman"
-[[ -s "/Users/user84791850/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/user84791850/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export JAVA_HOME=$(sdk home java 8.0.265.j9-adpt)
 export PATH="$PATH:$(sdk home scala 2.13.3)/bin"
