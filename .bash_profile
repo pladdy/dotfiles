@@ -26,6 +26,7 @@ export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin"
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.9/bin"
 export PATH="$PATH:/Users/user84791850/Library/Python/2.7/bin"
 
 # make mongo bin files available

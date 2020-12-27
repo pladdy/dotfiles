@@ -29,3 +29,4 @@ Change defaults of .env settings in `.env.local` if desired.
 -   `hub` provided by [hub](https://hub.github.com/)
 -   `lazygit`, aliased to `gg`, provided by [LazyGit](https://github.com/jesseduffield/lazygit)
 -   `lazydocker`, aliased to `gd`, provided by [LazyDocker](https://github.com/jesseduffield/lazydocker)
+-   `sdkman`, provided by [sdkman.io](https://sdkman.io/install)
