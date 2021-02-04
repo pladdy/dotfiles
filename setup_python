@@ -14,7 +14,7 @@ declare -a PACKAGES=(
   flake8
   httpie
   httpie-jwt-auth
-  pyls
+  python-language-server[all]
   rst2html5
   virtualenv
 )
