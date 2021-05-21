@@ -61,14 +61,17 @@ fi
 ##
 
 declare -a PACKAGES=(
+  coreutils
   bat
   direnv
   docker
+  duckdb
   jq
   lazygit
   tree
   vim
   wget
+  zlib
 )
 
 echo "Install home brew and packages."
@@ -95,3 +98,6 @@ fi
 
 # install sdkman
 curl -s "https://get.sdkman.io" | bash
+
+# install local .git/config
+cp .git_config .git/config
