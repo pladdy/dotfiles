@@ -35,3 +35,18 @@ eval "$(direnv hook bash)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+LDFLAGS=""
+CPPFLAGS=""
+PKG_CONFIG_PATH=""
+
+# For compilers to find zlib and ssl
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl@1.1/include"
+
+# For pkg-config to find zlib you may need to set:
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/openssl@1.1/lib/pkgconfig"
+

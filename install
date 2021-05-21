@@ -72,6 +72,7 @@ declare -a PACKAGES=(
   pandoc
   tree
   wget
+  zlib
 )
 
 echo "Install home brew and packages."
