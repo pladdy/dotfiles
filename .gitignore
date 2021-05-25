@@ -1,4 +1,15 @@
+.apm
+.node-gyp
+.npm
+
+.vim/bundle
 .vim/pack/kite
-.vim/bundle/*
+
 *.swp
 .env
+
+blob-store
+compile-cache
+dev
+storage
+

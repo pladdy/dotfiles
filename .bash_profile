@@ -22,6 +22,7 @@ if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
 
 # Setting PATHs for Python X.Y
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.9/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
@@ -35,7 +36,7 @@ export PATH="/usr/local/opt/mongodb-community@3.2/bin:$PATH"
 # use 0.11 of terraform
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
