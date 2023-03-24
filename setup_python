@@ -10,13 +10,8 @@ make poetry
 
 declare -a PACKAGES=(
   black
-  cookiecutter
   flake8
-  httpie
-  httpie-jwt-auth
-  python-language-server[all]
   rst2html5
-  virtualenv
 )
 
 # install pipx utilities

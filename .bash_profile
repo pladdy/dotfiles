@@ -2,6 +2,9 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+# initialize PATH
+export PATH=/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
 # golang tools get installed here
 export PATH=$PATH:$HOME/bin
 
@@ -22,12 +25,9 @@ if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
 
 # Setting PATHs for Python X.Y
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.8/bin"
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.7/bin"
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin"
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.9/bin"
-export PATH="$PATH:/Users/user84791850/Library/Python/2.7/bin"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
 
 # make mongo bin files available
 export PATH="/usr/local/opt/mongodb-community@3.2/bin:$PATH"
@@ -42,4 +42,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export JAVA_HOME=$(sdk home java 8.0.265.j9-adpt)
 export PATH="$PATH:$(sdk home scala 2.13.3)/bin"
 
-export PATH="$HOME/.poetry/bin:$PATH"
+# GO
+export PATH="$PATH:$GOPATH/bin"
+
+# Setting PATH for Python 3.9
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+export PATH

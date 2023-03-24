@@ -10,7 +10,6 @@ WORKING_DIR=$(cd $(dirname $0) && pwd)
 echo "backing up old files to .old"
 
 declare -a DIRS=(
-  .atom
   .vim
 )
 
@@ -65,12 +64,10 @@ declare -a PACKAGES=(
   bat
   direnv
   docker
-  hub
   jq
-  lazydocker
   lazygit
-  pandoc
   tree
+  vim
   wget
 )
 

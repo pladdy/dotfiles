@@ -1,6 +1,6 @@
 .PHONY: .env.local install
 
-POETRY_VERSION=1.1.4
+POETRY_VERSION=1.3.1
 
 all: .env install setup-vim setup-python
 
@@ -8,13 +8,13 @@ all: .env install setup-vim setup-python
 	cp $@.local $@
 
 clean:
-	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/$(POETRY_VERSION)/get-poetry.py | POETRY_UNINSTALL=1 python
+	curl -sSL https://install.python-poetry.org | python3 - --uninstall
 
 install:
 	./install
 
 poetry:
-	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/$(POETRY_VERSION)/get-poetry.py | POETRY_VERSION=$(POETRY_VERSION) python
+	curl -sSL https://install.python-poetry.org | POETRY_VERSION=$(POETRY_VERSION) python3 -
 
 setup-python:
 	./setup_python

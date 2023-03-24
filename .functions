@@ -104,5 +104,5 @@ show_last_file() {
 #   repository [string]
 ##
 gc() {
-  git clone git@$GIT_HOST:$1
+  git clone git@$GIT_HOST/$1
 }
