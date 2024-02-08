@@ -37,3 +37,8 @@ alias less=bat
 if [ "$(uname)" == "Darwin" ]; then
   alias git=hub
 fi
+
+# Below shouldn't be necessary unless poetry is installed with a python
+# interpreter that was made for non arm64 arch
+# alias poetry='arch -arm64 poetry'
+alias pipx='PIP_INDEX_URL=https://pypi.org/simple pipx'

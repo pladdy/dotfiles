@@ -29,7 +29,7 @@ for plugin in ${PLUGINS[@]}; do
   DIR_NAME=$BUNDLE_DIR/$(get_plugin_dir_name $plugin)
 
   if [ ! -d $DIR_NAME/.git ]; then
-    git clone git@github.com:$plugin $DIR_NAME
+    git clone https://github.com/$plugin $DIR_NAME
   else
     echo "$plugin seems to be installed; rm -rf $DIR_NAME to re-install"
   fi

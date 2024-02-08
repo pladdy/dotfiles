@@ -5,12 +5,13 @@ set -eu
 WORKING_DIR=$(cd $(dirname $0) && pwd)
 
 # install python tools before packages
-brew install openssl pipx
+brew install libpq libffi openssl pipx
 make poetry
 
 declare -a PACKAGES=(
   black
   flake8
+  harlequin
   rst2html5
 )
 
@@ -22,5 +23,3 @@ for package in ${PACKAGES[@]}; do
   pipx install $package --include-deps
 done
 
-echo "Linking rst2html5 for atom.io"
-ln -sf /usr/local/bin/rst2html5 /usr/local/bin/rst2html
