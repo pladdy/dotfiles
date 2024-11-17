@@ -69,6 +69,7 @@ declare -a PACKAGES=(
   tree
   vim
   wget
+  go
 )
 
 echo "Install home brew and packages."
