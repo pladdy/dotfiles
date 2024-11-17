@@ -5,6 +5,13 @@ alias h='history'
 alias act='source venv/bin/activate'
 alias deact='deactivate'
 
+# python via uv
+alias python3.10=$(uv python find 3.10)
+alias python3.11=$(uv python find 3.11)
+alias python3.12=$(uv python find 3.12)
+latest_python=$(uv python find 3.12)
+alias python3=$latest_python
+
 # these aliases end up being self referencing, unalias first before defining
 unalias ls &> /dev/null
 unalias ll &> /dev/null

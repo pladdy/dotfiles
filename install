@@ -92,6 +92,3 @@ else
   sudo apt-get update
   sudo apt-get install lazygit tree
 fi
-
-# install sdkman
-curl -s "https://get.sdkman.io" | bash

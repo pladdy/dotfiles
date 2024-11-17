@@ -5,22 +5,10 @@ set -eu
 WORKING_DIR=$(cd $(dirname $0) && pwd)
 
 # install python tools before packages
-brew install openssl pipx
-make poetry
+brew install openssl
 
-declare -a PACKAGES=(
-  black
-  flake8
-  rst2html5
-)
-
-# install pipx utilities
-for package in ${PACKAGES[@]}; do
-  if pipx uninstall $package; then
-    echo "Package '$package' not installed"
-  fi
-  pipx install $package --include-deps
-done
-
-echo "Linking rst2html5 for atom.io"
-ln -sf /usr/local/bin/rst2html5 /usr/local/bin/rst2html
+# install astral's uv for python stuff
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv python install 3.12
+uv python install 3.11
+uv python install 3.10
