@@ -1,3 +1,15 @@
+# initialize PATH
+export PATH=/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# golang tools get installed here
+export PATH=$PATH:$HOME/bin
+
+# add local [s]bin to end of path
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin
+
+# python (poetry, pipx)
+export PATH="$PATH:$HOME/.local/bin"
+
 declare -a dotfiles=(
   .aliases
   .colors
@@ -31,7 +43,3 @@ ssh-add ~/.ssh/id_rsa
 
 echo "Enabling direnv hook"
 eval "$(direnv hook bash)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
